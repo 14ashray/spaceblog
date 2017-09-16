@@ -2,11 +2,34 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Star Social</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/master.css' %}">
   </head>
   <body>
-    {% block content %}
-    
-    {% endblock %}
+    <nav class="navbar mynav" role="navigation" id="navbar">
+      <div class="container">
+        <a class="navbar-brand mynav" href="{% url 'home' %}">Star Social</a>
+        <ul class="nav navbar-nav navbar-right">
+          {% if user.is_authenticated %}
+          <li><a href="#">Post</a></li>
+          <li><a href="#">Groups</a></li>
+          <li><a href="#">Create Group</a></li>
+          <li><a href="{% url 'accounts:logout' %}">LogOut</a></li>
+          {% else %}
+          <li><a href="#">Groups</a></li>
+          <li><a href="{% url 'account:login' %}">LogIn</a></li>
+          <li><a href="{% url 'accounts:signup' %}">SignUp</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+    <div class="container mycontent">
+      {% block content %}
+
+      {% endblock %}
+    </div>
   </body>
 </html>

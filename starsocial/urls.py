@@ -20,4 +20,6 @@ from starsocial import views
 urlpatterns = [
     url(r'^$',views.HomePage.as_view(),name='homepage'),
     url(r'^admin/', admin.site.urls),
+    url(r'account/',include('account.urls',namespace='accounts')),
+    url(r'account/',include('django.contrib.auth.urls')),
 ]
