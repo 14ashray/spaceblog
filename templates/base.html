@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load staticfiles %}
 <html>
   <head>
     <meta charset="utf-8">
@@ -20,7 +21,7 @@
           <li><a href="{% url 'accounts:logout' %}">LogOut</a></li>
           {% else %}
           <li><a href="#">Groups</a></li>
-          <li><a href="{% url 'account:login' %}">LogIn</a></li>
+          <li><a href="{% url 'accounts:login' %}">LogIn</a></li>
           <li><a href="{% url 'accounts:signup' %}">SignUp</a></li>
           {% endif %}
         </ul>
