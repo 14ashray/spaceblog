@@ -21,6 +21,8 @@ urlpatterns = [
     url(r'^$',views.HomePage.as_view(),name='home'),
     url(r'^admin/', admin.site.urls),
     url(r'^account/',include('accounts.urls',namespace='accounts')),
+    url(r'^posts/',include('posts.urls',namespace='posts')),
+    url(r'^groups/',include('groups.urls',namespace='groups')),
     url(r'^account/',include('django.contrib.auth.urls')),
     url(r'^test/$',views.TestPage.as_view(),name='test'),
     url(r'^thanks/$',views.ThanksPage.as_view(),name='thanks'),

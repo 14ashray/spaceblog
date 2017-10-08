@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from post import views
+from posts import views
 
 app_name='posts'
 

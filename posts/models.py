@@ -4,7 +4,7 @@ from django.conf import Settings
 import misaka
 from groups.models import Group
 from django.contrib.auth import get_user_model
-User=get_user_model
+User=get_user_model()
 
 # Create your models here.
 
@@ -13,7 +13,7 @@ class Post(models.Model):
     created_at=models.DateTimeField(auto_now=True)
     message=models.TextField()
     message_html=models.TextField(editable=False)
-    group=models.ForeignKey(Group,related_name='post',null=True,blank=True)
+    group=models.ForeignKey(Group,related_name='posts',null=True,blank=True)
     def __str__(self):
         return self.message
     def save(self,*args,**kwargs):
@@ -24,4 +24,3 @@ class Post(models.Model):
     class Meta():
         ordering=["-created_at"]
         unique_together=['user','message']
-        
