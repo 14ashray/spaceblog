@@ -5,7 +5,7 @@ from django.views import generic
 from groups.models import Group,GroupMember
 from django.shortcuts import get_object_or_404
 from django.contrib import messages
-
+from groups import models
 # Create your views here.
 
 class CreateGroup(generic.CreateView,LoginRequiredMixin):
@@ -44,5 +44,5 @@ class LeaveGroup(LoginRequiredMixin,generic.RedirectView):
             messages.warning(self.request,'Sorry you are not in this group')
         else:
             membership.delete()
-            membership.success(self.request,'You have left the group')
+            messages.success(self.request,'You have left the group')
         return super().get(request,*args,**kwargs)
