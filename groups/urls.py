@@ -1,6 +1,7 @@
 from django.conf.urls import url
 from groups import views
 
+
 app_name='groups'
 
 urlpatterns=[
